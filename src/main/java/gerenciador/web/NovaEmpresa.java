@@ -28,6 +28,11 @@ public class NovaEmpresa extends HttpServlet{
 		writer.println("<html>");
 		writer.println("<body>");
 		writer.println("<br/> Empresa criada com sucesso: " + empresa.getNome());
+		
+		writer.println("<form action=\"index.html\" method=\"GET\">");
+		writer.println("<input type=\"submit\" value=\"Ir para index \">");
+		writer.println("</form>");
+		
 		writer.println("</body>");
 		writer.println("</html>");
 	}
