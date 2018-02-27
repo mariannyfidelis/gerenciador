@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -32,11 +33,17 @@ public class Logout extends HttpServlet {
 		}*/
 		if(usuario != null) {
 			session.removeAttribute("usuario.logado");
-			resp.sendRedirect("logoutt.html");
-		}
+			//resp.sendRedirect("logoutt.html");
+			
+			RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/paginas/logoutt.html");
+			requestDispatcher.forward(req, resp);
+			}
 		else {
 			//writer.println("<html><body>Logout não pode ser efetuado  pois usuário não estava logado</body></html>");
-			resp.sendRedirect("logoutf.html");
+			//resp.sendRedirect("logoutf.html");
+			RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/paginas/logoutf.html");
+			requestDispatcher.forward(req, resp);
+			
 		}
 		
 		
