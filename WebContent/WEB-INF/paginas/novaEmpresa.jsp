@@ -4,8 +4,12 @@
 <body>
 	Empresa adicionada com sucesso: ${empresa.getNome()}
 
-	<form action="index.html" method="GET">
-		<input type="submit" value= "Ir para index">
+	<form action="busca" method="GET">
+		<input type="submit" value="Ir para busca ">
+	</form>
+
+	<form action="index.jsp" method="GET">
+		<input type="submit" value="Ir para index">
 	</form>
 </body>
 </html>
