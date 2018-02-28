@@ -12,11 +12,10 @@ import javax.servlet.http.HttpSession;
 
 import gerenciador.Usuario;
 
-@WebServlet(urlPatterns = "/logout")
-public class Logout extends HttpServlet {
+public class Logout implements Tarefa {
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public String executa(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
 		/*NÃO SERÁ MAIS USADO O COOKIE E SIM A SESSION
 		Cookie cookie = new Cookies(req.getCookies()).getUsuarioLogado();*/
@@ -45,4 +44,5 @@ public class Logout extends HttpServlet {
 			requestDispatcher.forward(req, resp);	
 		}
 	}
+
 }
