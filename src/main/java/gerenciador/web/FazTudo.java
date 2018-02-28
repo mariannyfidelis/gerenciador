@@ -17,13 +17,13 @@ public class FazTudo extends HttpServlet {
 
 		String attribute = req.getParameter("tarefa");
 
-		if(attribute == null) {
-			throw new IllegalArgumentException();
+		if (attribute == null) {
+			throw new IllegalArgumentException("Você esqueceu de passar a tarefa");
 		}
-		
-		String nomeClasse = "gerenciador.web." + attribute;
 
 		try {
+			String nomeClasse = "gerenciador.web." + attribute;
+
 			Class<?> type = Class.forName(nomeClasse);
 			Tarefa task = (Tarefa) type.newInstance();
 			String path = task.executa(req, resp);
