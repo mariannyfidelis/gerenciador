@@ -15,14 +15,17 @@ public class FazTudo extends HttpServlet {
 	@Override
 	protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-		String attribute = (String) req.getParameter("tarefa");
+		String attribute = req.getParameter("tarefa");
 
-		String tarefa = "gerenciador.web." + attribute;
+		if(attribute == null) {
+			throw new IllegalArgumentException();
+		}
+		
+		String nomeClasse = "gerenciador.web." + attribute;
 
 		try {
-			Class<?> className = Class.forName(tarefa);
-			Tarefa task;
-			task = (Tarefa) className.newInstance();
+			Class<?> type = Class.forName(nomeClasse);
+			Tarefa task = (Tarefa) type.newInstance();
 			String path = task.executa(req, resp);
 			RequestDispatcher requestDispatcher = req.getRequestDispatcher(path);
 			requestDispatcher.forward(req, resp);
