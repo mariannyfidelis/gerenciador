@@ -3,6 +3,7 @@ package gerenciador.web;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,16 +25,10 @@ public class NovaEmpresa extends HttpServlet{
 		
 		new EmpresaDAO().adiciona(empresa);
 		
-		PrintWriter writer = resp.getWriter();
-		writer.println("<html>");
-		writer.println("<body>");
-		writer.println("<br/> Empresa criada com sucesso: " + empresa.getNome());
+		//Envia em outra requisição o objeto empresa
+		req.setAttribute("empresa", empresa);
 		
-		writer.println("<form action=\"index.html\" method=\"GET\">");
-		writer.println("<input type=\"submit\" value=\"Ir para index \">");
-		writer.println("</form>");
-		
-		writer.println("</body>");
-		writer.println("</html>");
+		RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/paginas/novaEmpresa.jsp");
+		requestDispatcher.forward(req, resp);
 	}
 }
