@@ -4,7 +4,8 @@
 <body>
 	Empresa adicionada com sucesso: ${empresa.getNome()}
 
-	<form action="busca" method="GET">
+	<form action="controller" method="GET">
+		<input type="hidden" name="tarefa" value="BuscaEmpresa"> 
 		<input type="submit" value="Ir para busca ">
 	</form>
 
