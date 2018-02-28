@@ -42,11 +42,7 @@ public class Logout extends HttpServlet {
 			//writer.println("<html><body>Logout não pode ser efetuado  pois usuário não estava logado</body></html>");
 			//resp.sendRedirect("logoutf.html");
 			RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/paginas/logoutf.html");
-			requestDispatcher.forward(req, resp);
-			
+			requestDispatcher.forward(req, resp);	
 		}
-		
-		
-
 	}
 }
