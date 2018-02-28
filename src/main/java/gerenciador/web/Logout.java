@@ -2,7 +2,6 @@ package gerenciador.web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -23,16 +22,17 @@ public class Logout extends HttpServlet {
 		Cookie cookie = new Cookies(req.getCookies()).getUsuarioLogado();*/
 		HttpSession session = req.getSession();
 		
-		Usuario usuario = (Usuario) session.getAttribute("usuario.logado");
-		PrintWriter writer = resp.getWriter();
+		Usuario usuario = (Usuario) session.getAttribute("usuarioLogado");
+		/*
+		 * PrintWriter writer = resp.getWriter();
 		
-		/*if (cookie != null) {
+		if (cookie != null) {
 			cookie.setMaxAge(0);
 			resp.addCookie(cookie);
 			writer.println("<html><body>Logout efetuado</body></html>");
 		}*/
 		if(usuario != null) {
-			session.removeAttribute("usuario.logado");
+			session.removeAttribute("usuarioLogado");
 			//resp.sendRedirect("logoutt.html");
 			
 			RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/paginas/logoutt.html");

@@ -41,13 +41,13 @@ public class Login extends HttpServlet {
 			 */
 			
 			//Com sessão configura o atributo e o objeto usuário
-			req.getSession().setAttribute("usuario.logado", usuario);
+			req.getSession().setAttribute("usuarioLogado", usuario);
 			
 			writer.println("<html>");
 			writer.println("<body>");
 			writer.println("Usuario: " + userEmail + " acessando : " + req.getRequestURI()+"<br/>");
 
-			writer.println("<form action=\"index.html\" method=\"GET\">");
+			writer.println("<form action=\"index.jsp\" method=\"GET\">");
 			writer.println("<input type=\"submit\" value=\"Ir para index \">");
 			writer.println("</form>");
 			writer.println("</body>");

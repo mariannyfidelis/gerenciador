@@ -8,17 +8,14 @@ import javax.servlet.http.Cookie;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpSession;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import gerenciador.Usuario;
 
 @WebFilter(urlPatterns = "/*")
 public class FiltroDeAuditoria implements Filter {
-
-	private Object cookies;
 
 	@Override
 	public void doFilter(ServletRequest req, ServletResponse resp, FilterChain filter)
@@ -34,7 +31,7 @@ public class FiltroDeAuditoria implements Filter {
 
 		String usuario = "<deslogado>";
 		HttpSession session = request.getSession();
-		Usuario usuarioLogado = ((Usuario) session.getAttribute("usuario.logado"));
+		Usuario usuarioLogado = ((Usuario) session.getAttribute("usuarioLogado"));
 	
 		if (usuarioLogado != null) {
 
