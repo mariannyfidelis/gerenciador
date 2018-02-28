@@ -13,7 +13,7 @@
 		Você está logado como ${usuarioLogado.getEmail()}<br />
 	</c:if>
 
-	<form action="novaEmpresa" method="POST">
+	<form action="fazTudo?tarefa=NovaEmpresa" method="POST">
 
 		Nome: <input type="text" name="nome"> <input type="submit"
 			value="Enviar">
