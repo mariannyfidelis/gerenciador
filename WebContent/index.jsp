@@ -6,10 +6,11 @@
 </head>
 
 <body>
-	Bem vindo ao nosso gerenciador de empresas!	<br />
-	
+	Bem vindo ao nosso gerenciador de empresas!
+	<br />
+
 	<c:if test="${usuarioLogado != null}">
-		Você está logado como ${usuarioLogado.getEmail()}<br/>
+		Você está logado como ${usuarioLogado.getEmail()}<br />
 	</c:if>
 
 	<form action="novaEmpresa" method="POST">
@@ -28,8 +29,9 @@
 		<input type="submit" value="Ir para busca ">
 	</form>
 
-	<form action="logout" method="POST">
-		<input type="submit" value="Deslogar">
+	<form action="fazTudo?tarefa=Logout" method="post">
+		<input type="submit" value="Deslogar" />
 	</form>
+
 </body>
 </html>
